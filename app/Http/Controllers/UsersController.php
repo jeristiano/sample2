@@ -32,10 +32,10 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        $statuses=$user->statuses()
-            ->orderBy('created_at','desc')
+        $statuses = $user->statuses()
+            ->orderBy('created_at', 'desc')
             ->paginate(30);
-        return view('users.show', compact('user','statuses'));
+        return view('users.show', compact('user', 'statuses'));
     }
 
     public function store(Request $request)
@@ -112,5 +112,18 @@ class UsersController extends Controller
         return redirect()->route('users.show', [$user]);
     }
 
+    //关注的人
+    public function followings(User $user)
+    {
+        $users = $user->followings()->paginate(30);
+        $title = '关注的人';
+        return view('users.show_follow', compact('users', 'title'));
+    }
 
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(30);
+        $titile="粉丝";
+        return view('users.show_follow', compact('users', 'title'));
+    }
 }
