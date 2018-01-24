@@ -215,7 +215,7 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
     /**
      * Proxies all method calls to the original event dispatcher.
      *
-     * @param string $method    The method namlre
+     * @param string $method    The method name
      * @param array  $arguments The method arguments
      *
      * @return mixed
