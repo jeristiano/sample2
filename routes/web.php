@@ -18,3 +18,9 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 //注册页面
 Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
+
+//登录注册页面
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
