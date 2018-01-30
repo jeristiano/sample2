@@ -45,4 +45,14 @@ class User extends Authenticatable
         // 使用User模型时自动获取当前用户的邮箱属性
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
+
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+    public function feed()
+    {
+        return $this->statuses()
+            ->orderBy('created_at','desc');
+    }
 }
